@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>One Last Thing ♡</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(255, 205, 225, 0.20),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    180deg,
+                    #242037 0%,
+                    #4b374f 55%,
+                    #806071 100%
+                );
+
+            color: white;
+
+            text-align: center;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* BACKGROUND GLOW */
+
+        .glow {
+
+            position: fixed;
+
+            width: 330px;
+            height: 330px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 190, 215, 0.10);
+
+            filter: blur(90px);
+
+            top: 5%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            pointer-events: none;
+
+        }
+
+
+        /* MAIN */
+
+        .page {
+
+            width: 92%;
+
+            max-width: 760px;
+
+            margin: auto;
+
+            padding:
+
+                55px 0 45px;
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        /* TOP TEXT */
+
+        .small-text {
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            opacity: 0.65;
+
+            margin-bottom: 15px;
+
+            animation: fadeUp 1s ease forwards;
+
+        }
+
+
+        h1 {
+
+            font-size:
+                clamp(30px, 6vw, 48px);
+
+            font-weight: 400;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 18px;
+
+            animation:
+                fadeUp 1.2s ease forwards;
+
+        }
+
+
+        .intro {
+
+            max-width: 500px;
+
+            margin: auto;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            opacity: 0.82;
+
+            margin-bottom: 35px;
+
+            animation:
+                fadeUp 1.4s ease forwards;
+
+        }
+
+
+        /* =========================
+           VIDEO AREA
+        ========================= */
+
+        .video-wrapper {
+
+            /*
+               PORTRAIT PHONE VIDEO
+
+               9 : 16 ratio
+            */
+
+            width: min(78vw, 390px);
+
+            aspect-ratio: 9 / 16;
+
+            margin: 0 auto;
+
+            padding: 8px;
+
+            border-radius: 28px;
+
+            background:
+                rgba(255,255,255,0.09);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            box-shadow:
+
+                0 25px 70px
+                rgba(10,5,20,0.45),
+
+                0 0 45px
+                rgba(255,190,215,0.10);
+
+            backdrop-filter:
+                blur(12px);
+
+            animation:
+                videoAppear 1.5s ease forwards;
+
+        }
+
+
+        video {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            object-fit: contain;
+
+            background: #171522;
+
+            border-radius: 21px;
+
+        }
+
+
+        /* SMALL NOTE */
+
+        .video-note {
+
+            margin-top: 15px;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            opacity: 0.5;
+
+        }
+
+
+        /* =========================
+           ENDING
+        ========================= */
+
+        .ending {
+
+            margin-top: 65px;
+
+            padding-top: 35px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.13);
+
+            animation:
+                fadeUp 1.5s ease 0.5s forwards;
+
+            opacity: 0;
+
+        }
+
+
+        .ending-heart {
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .ending h2 {
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .ending p {
+
+            max-width: 500px;
+
+            margin: auto;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            opacity: 0.78;
+
+        }
+
+
+        /* =========================
+           CIRCLE BACK TO HOME
+        ========================= */
+
+        .beginning {
+
+            margin-top: 55px;
+
+            padding: 28px 20px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,0.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            animation:
+                fadeUp 1.5s ease 0.9s forwards;
+
+            opacity: 0;
+
+        }
+
+
+        .beginning-text {
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            opacity: 0.55;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .home-link {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: white;
+
+            padding: 11px 22px;
+
+            border-radius: 25px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.22);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            font-size: 13px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .home-link:hover {
+
+            background:
+                rgba(255,255,255,0.18);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =========================
+           STARS
+        ========================= */
+
+        .star {
+
+            position: fixed;
+
+            color:
+                rgba(255,240,247,0.65);
+
+            font-size: 9px;
+
+            pointer-events: none;
+
+            animation:
+                twinkle 3s ease-in-out infinite;
+
+        }
+
+
+        .star:nth-child(1) {
+
+            top: 12%;
+            left: 9%;
+
+        }
+
+
+        .star:nth-child(2) {
+
+            top: 22%;
+            right: 11%;
+
+            animation-delay: 1s;
+
+        }
+
+
+        .star:nth-child(3) {
+
+            top: 70%;
+            left: 7%;
+
+            animation-delay: 1.8s;
+
+        }
+
+
+        .star:nth-child(4) {
+
+            top: 78%;
+            right: 9%;
+
+            animation-delay: 0.6s;
+
+        }
+
+
+        .star:nth-child(5) {
+
+            top: 43%;
+            left: 4%;
+
+            animation-delay: 2s;
+
+        }
+
+
+        .star:nth-child(6) {
+
+            top: 40%;
+            right: 4%;
+
+            animation-delay: 1.3s;
+
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes videoAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.94)
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes twinkle {
+
+            0%, 100% {
+
+                opacity: 0.25;
+
+                transform:
+                    scale(0.8);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.3);
+
+            }
+
+        }
+
+
+        /* =========================
+           PHONE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                width: 92%;
+
+                padding:
+                    42px 0 35px;
+
+            }
+
+
+            h1 {
+
+                font-size: 31px;
+
+            }
+
+
+            .intro {
+
+                font-size: 13px;
+
+                line-height: 1.75;
+
+                padding:
+                    0 8px;
+
+                margin-bottom: 28px;
+
+            }
+
+
+            .video-wrapper {
+
+                width: min(82vw, 350px);
+
+                border-radius: 24px;
+
+                padding: 7px;
+
+            }
+
+
+            video {
+
+                border-radius: 18px;
+
+            }
+
+
+            .ending {
+
+                margin-top: 50px;
+
+            }
+
+
+            .ending h2 {
+
+                font-size: 22px;
+
+            }
+
+
+            .ending p {
+
+                font-size: 13px;
+
+            }
+
+
+            .beginning {
+
+                margin-top: 42px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="glow"></div>
+
+
+    <!-- LITTLE STARS -->
+
+    <div class="star">✦</div>
+    <div class="star">✦</div>
+    <div class="star">✦</div>
+    <div class="star">✦</div>
+    <div class="star">✦</div>
+    <div class="star">✦</div>
+
+
+    <main class="page">
+
+
+        <!-- INTRO -->
+
+        <div class="small-text">
+
+            you made it all the way here
+
+        </div>
+
+
+        <h1>
+
+            okay... one last thing ♡
+
+        </h1>
+
+
+        <p class="intro">
+
+            You found the little world,
+            opened the garden,
+            and found all five flowers.
+
+            <br><br>
+
+            So I guess there's only
+            one thing left.
+
+        </p>
+
+
+        <!-- VIDEO -->
+
+        <div class="video-wrapper">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="videos/message.mp4"
+                    type="video/mp4">
+
+                Your browser does not support
+                the video element.
+
+            </video>
+
+        </div>
+
+
+        <p class="video-note">
+
+            take your time ♡
+
+        </p>
+
+
+        <!-- END -->
+
+        <section class="ending">
+
+            <div class="ending-heart">
+
+                ♡
+
+            </div>
+
+
+            <h2>
+
+                and that's the end.
+
+            </h2>
+
+
+            <p>
+
+                No more hidden pages.
+                No more little secrets.
+
+                <br><br>
+
+                Just this little world
+                that I made for you.
+
+                <br><br>
+
+                Thank you for being
+                part of it. ♡
+
+            </p>
+
+        </section>
+
+
+        <!-- RETURN TO BEGINNING -->
+
+        <section class="beginning">
+
+            <div class="beginning-text">
+
+                every story has a beginning...
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="home-link">
+
+                go back to where it all started ♡
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+</body>
+
+</html>

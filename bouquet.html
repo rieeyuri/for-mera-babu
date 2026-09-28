@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Garden ♡</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #24233d 0%,
+                    #4c4266 42%,
+                    #a77a91 100%
+                );
+
+            color: white;
+
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .main-nav {
+
+            width: 90%;
+            max-width: 900px;
+
+            margin: 25px auto 0;
+
+            padding: 10px 15px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(10px);
+
+            position: relative;
+
+            z-index: 100;
+        }
+
+
+        .main-nav a {
+
+            text-decoration: none;
+
+            color: #fff1f6;
+
+            font-size: 14px;
+
+            padding: 8px 13px;
+
+            border-radius: 20px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .main-nav a:hover {
+
+            background:
+                rgba(255,255,255,0.18);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .nav-divider {
+
+            color: #e7b8ca;
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            width: 100%;
+
+            max-width: 950px;
+
+            margin: auto;
+
+            padding:
+                55px 18px 80px;
+
+            animation:
+                pageAppear 1s ease;
+        }
+
+
+        @keyframes pageAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro h1 {
+
+            margin: 0 0 12px;
+
+            font-family: Georgia, serif;
+
+            font-size:
+                clamp(38px, 7vw, 58px);
+
+            font-weight: normal;
+
+            color: #fff0f5;
+
+            text-shadow:
+                0 3px 20px
+                rgba(255,210,225,0.20);
+        }
+
+
+        .intro p {
+
+            max-width: 570px;
+
+            margin: auto;
+
+            font-family: Georgia, serif;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            color: #f4dce6;
+        }
+
+
+        .instruction {
+
+            margin-top: 12px !important;
+
+            font-family:
+                Arial, sans-serif !important;
+
+            font-size: 12px !important;
+
+            color: #dcb5c7 !important;
+        }
+
+
+        /* =========================================
+           GARDEN
+        ========================================= */
+
+        .garden {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 760px;
+
+            height: 600px;
+
+            margin:
+                28px auto 0;
+
+            overflow: hidden;
+
+            border-radius: 35px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #292844 0%,
+                    #514461 45%,
+                    #85647a 72%,
+                    #9a7585 100%
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.14);
+
+            box-shadow:
+                0 20px 55px
+                rgba(15,10,30,0.35);
+        }
+
+
+        /* =========================================
+           MOON
+        ========================================= */
+
+        .moon {
+
+            position: absolute;
+
+            right: 12%;
+
+            top: 12%;
+
+            width: 82px;
+
+            height: 82px;
+
+            border-radius: 50%;
+
+            background:
+                #fff4d6;
+
+            box-shadow:
+                0 0 25px
+                rgba(255,244,214,0.45),
+                0 0 65px
+                rgba(255,244,214,0.18);
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            transition:
+                0.5s ease;
+        }
+
+
+        .moon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 82px;
+
+            height: 82px;
+
+            border-radius: 50%;
+
+            background:
+                #292844;
+
+            left: 23px;
+
+            top: -12px;
+        }
+
+
+        .moon:hover {
+
+            transform:
+                scale(1.08);
+
+            box-shadow:
+                0 0 35px
+                rgba(255,244,214,0.65),
+                0 0 85px
+                rgba(255,244,214,0.22);
+        }
+
+
+        .moon-text {
+
+            position: absolute;
+
+            right: 7%;
+
+            top: calc(12% + 98px);
+
+            width: 130px;
+
+            font-family: Georgia, serif;
+
+            font-size: 11px;
+
+            color: #eac8d6;
+
+            line-height: 1.5;
+
+            opacity: 1;
+
+            transition:
+                0.5s ease;
+
+            z-index: 10;
+        }
+
+
+        .garden.open .moon {
+
+            transform:
+                scale(0.9);
+
+            cursor: default;
+        }
+
+
+        .garden.open .moon-text {
+
+            opacity: 0;
+        }
+
+
+        /* =========================================
+           STARS
+        ========================================= */
+
+        .star {
+
+            position: absolute;
+
+            color: #fff4d4;
+
+            font-size: 10px;
+
+            opacity: 0.7;
+
+            animation:
+                twinkle
+                3s ease-in-out infinite;
+        }
+
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+
+                opacity: 0.25;
+
+                transform:
+                    scale(0.8);
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.25);
+            }
+        }
+
+
+        .star-1 {
+            left: 12%;
+            top: 15%;
+        }
+
+        .star-2 {
+            left: 25%;
+            top: 27%;
+            animation-delay: .7s;
+        }
+
+        .star-3 {
+            left: 42%;
+            top: 13%;
+            animation-delay: 1.2s;
+        }
+
+        .star-4 {
+            left: 57%;
+            top: 22%;
+            animation-delay: .3s;
+        }
+
+        .star-5 {
+            left: 73%;
+            top: 10%;
+            animation-delay: 1.7s;
+        }
+
+        .star-6 {
+            left: 86%;
+            top: 28%;
+            animation-delay: 1s;
+        }
+
+        .star-7 {
+            left: 32%;
+            top: 40%;
+            animation-delay: 2s;
+        }
+
+        .star-8 {
+            left: 68%;
+            top: 37%;
+            animation-delay: 1.5s;
+        }
+
+
+        /* =========================================
+           FIRELIGHT
+        ========================================= */
+
+        .glow {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 38%;
+
+            width: 300px;
+
+            height: 300px;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                rgba(245,180,205,0.08);
+
+            filter:
+                blur(35px);
+
+            opacity: 0;
+
+            transition:
+                2s ease;
+        }
+
+
+        .garden.open .glow {
+
+            opacity: 1;
+        }
+
+
+        /* =========================================
+           GROUND
+        ========================================= */
+
+        .ground {
+
+            position: absolute;
+
+            left: -5%;
+
+            bottom: -75px;
+
+            width: 110%;
+
+            height: 250px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #526d55,
+                    #304b39
+                );
+
+            border-radius:
+                50% 50% 0 0;
+
+            transform:
+                rotate(-2deg);
+
+            z-index: 2;
+        }
+
+
+        .ground::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: -18px;
+
+            width: 100%;
+
+            height: 40px;
+
+            background:
+                rgba(117,146,105,0.65);
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================================
+           FLOWERS
+        ========================================= */
+
+        .flower {
+
+            position: absolute;
+
+            width: 90px;
+
+            height: 145px;
+
+            z-index: 6;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            transform:
+                translateY(120px)
+                scale(0.35);
+
+            transition:
+                opacity 0.9s ease,
+                transform 0.6s cubic-bezier(.2,.8,.2,1);
+        }
+
+
+        .garden.open .flower {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+
+        .flower:hover {
+
+            transform:
+                translateY(-7px)
+                scale(1.08) !important;
+        }
+
+
+        .flower.visited {
+
+            filter:
+                drop-shadow(
+                    0 0 14px
+                    rgba(255,220,235,0.7)
+                );
+        }
+
+
+        .flower-head {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 0;
+
+            transform:
+                translateX(-50%);
+
+            font-size: 62px;
+
+            line-height: 1;
+
+            transition:
+                0.4s ease;
+        }
+
+
+        .flower:hover .flower-head {
+
+            transform:
+                translateX(-50%)
+                rotate(-6deg)
+                scale(1.1);
+        }
+
+
+        .stem {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 52px;
+
+            width: 5px;
+
+            height: 95px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                #527b55;
+
+            border-radius: 10px;
+        }
+
+
+        .leaf {
+
+            position: absolute;
+
+            width: 30px;
+
+            height: 14px;
+
+            background:
+                #668d61;
+
+            border-radius:
+                100% 0 100% 0;
+        }
+
+
+        .leaf.left {
+
+            left: 10px;
+
+            top: 82px;
+
+            transform:
+                rotate(25deg);
+        }
+
+
+        .leaf.right {
+
+            right: 10px;
+
+            top: 99px;
+
+            transform:
+                rotate(-25deg);
+        }
+
+
+        /* =========================================
+           FLOWER POSITIONS
+        ========================================= */
+
+        .flower-1 {
+
+            left: 6%;
+
+            bottom: 105px;
+
+            transition-delay: .15s;
+        }
+
+
+        .flower-2 {
+
+            left: 24%;
+
+            bottom: 155px;
+
+            transition-delay: .3s;
+        }
+
+
+        .flower-3 {
+
+            left: 42%;
+
+            bottom: 100px;
+
+            transition-delay: .45s;
+        }
+
+
+        .flower-4 {
+
+            right: 23%;
+
+            bottom: 155px;
+
+            transition-delay: .6s;
+        }
+
+
+        .flower-5 {
+
+            right: 5%;
+
+            bottom: 105px;
+
+            transition-delay: .75s;
+        }
+
+
+        .flower-3 .flower-head {
+
+            font-size: 74px;
+        }
+
+
+        /* =========================================
+           FIRELIES
+        ========================================= */
+
+        .firefly {
+
+            position: absolute;
+
+            width: 5px;
+
+            height: 5px;
+
+            border-radius: 50%;
+
+            background:
+                #fff1a8;
+
+            box-shadow:
+                0 0 12px
+                rgba(255,239,156,0.9);
+
+            opacity: 0;
+
+            z-index: 4;
+
+            animation:
+                floatLight
+                4s ease-in-out infinite;
+        }
+
+
+        .garden.open .firefly {
+
+            opacity: .9;
+        }
+
+
+        .firefly-1 {
+            left: 15%;
+            bottom: 37%;
+        }
+
+        .firefly-2 {
+            left: 34%;
+            bottom: 29%;
+            animation-delay: 1s;
+        }
+
+        .firefly-3 {
+            left: 58%;
+            bottom: 35%;
+            animation-delay: 2s;
+        }
+
+        .firefly-4 {
+            left: 80%;
+            bottom: 30%;
+            animation-delay: .5s;
+        }
+
+        .firefly-5 {
+            left: 47%;
+            bottom: 45%;
+            animation-delay: 1.7s;
+        }
+
+
+        @keyframes floatLight {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0,0)
+                    scale(.6);
+
+                opacity: .2;
+            }
+
+            50% {
+
+                transform:
+                    translate(8px,-18px)
+                    scale(1.2);
+
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================================
+           START MESSAGE
+        ========================================= */
+
+        .start-message {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 53%;
+
+            transform:
+                translate(-50%,-50%);
+
+            width: 270px;
+
+            font-family: Georgia, serif;
+
+            color: #f8e8ee;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            opacity: 1;
+
+            transition:
+                1s ease;
+
+            z-index: 15;
+
+            pointer-events: none;
+        }
+
+
+        .garden.open .start-message {
+
+            opacity: 0;
+
+            transform:
+                translate(-50%,-60%);
+        }
+
+
+        /* =========================================
+           FLOWER MESSAGE
+        ========================================= */
+
+        .message-box {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 27px;
+
+            transform:
+                translateX(-50%)
+                translateY(-12px);
+
+            width:
+                calc(100% - 40px);
+
+            max-width: 430px;
+
+            padding:
+                12px 18px;
+
+            background:
+                rgba(36,32,57,0.72);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.15);
+
+            border-radius: 20px;
+
+            backdrop-filter:
+                blur(8px);
+
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color: #f7dce7;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                .5s ease;
+
+            z-index: 30;
+        }
+
+
+        .message-box.show {
+
+            opacity: 1;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+
+        /* =========================================
+           COUNTER
+        ========================================= */
+
+        .counter {
+
+            position: absolute;
+
+            left: 20px;
+
+            top: 20px;
+
+            z-index: 30;
+
+            padding:
+                6px 11px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.10);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            color: #e9c8d5;
+
+            font-size: 11px;
+
+            opacity: 0;
+
+            transition:
+                .5s ease;
+        }
+
+
+        .garden.open .counter {
+
+            opacity: 1;
+        }
+
+
+        /* =========================================
+           FINAL TRANSFORMATION
+        ========================================= */
+
+        .final-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,220,235,0.18),
+                    rgba(25,22,43,0.72)
+                );
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                1.5s ease;
+
+            z-index: 50;
+        }
+
+
+        .final-overlay.show {
+
+            opacity: 1;
+
+            pointer-events: auto;
+        }
+
+
+        .final-content {
+
+            width: 90%;
+
+            max-width: 470px;
+
+            padding: 25px;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                1s ease .3s;
+        }
+
+
+        .final-overlay.show
+        .final-content {
+
+            transform:
+                translateY(0);
+        }
+
+
+        .final-content h2 {
+
+            margin: 0 0 12px;
+
+            font-family: Georgia, serif;
+
+            font-size:
+                clamp(27px,6vw,38px);
+
+            font-weight: normal;
+
+            color: #fff1f6;
+        }
+
+
+        .final-content p {
+
+            margin: 0;
+
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #f1d7e2;
+        }
+
+
+        .video-button {
+
+            display: inline-block;
+
+            margin-top: 22px;
+
+            padding:
+                12px 26px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            background:
+                #d97899;
+
+            color: white;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,0.20);
+
+            transition:
+                .3s ease;
+        }
+
+
+        .video-button:hover {
+
+            background:
+                #c96587;
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            margin-top: 40px;
+
+            font-size: 12px;
+
+            color: #d5b4c2;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width:650px) {
+
+            .main-nav {
+
+                width: 94%;
+
+                padding:
+                    8px 7px;
+
+                gap: 2px;
+            }
+
+
+            .main-nav a {
+
+                font-size: 10.5px;
+
+                padding:
+                    6px 7px;
+            }
+
+
+            .page {
+
+                padding:
+                    50px 10px 55px;
+            }
+
+
+            .intro p {
+
+                font-size: 14px;
+            }
+
+
+            .garden {
+
+                height: 570px;
+
+                border-radius: 27px;
+            }
+
+
+            .moon {
+
+                right: 10%;
+
+                top: 11%;
+
+                width: 68px;
+
+                height: 68px;
+            }
+
+
+            .moon::after {
+
+                width: 68px;
+
+                height: 68px;
+
+                left: 19px;
+
+                top: -10px;
+            }
+
+
+            .moon-text {
+
+                right: 5%;
+
+                top: calc(11% + 82px);
+
+                font-size: 10px;
+
+                width: 100px;
+            }
+
+
+            .flower {
+
+                transform:
+                    translateY(120px)
+                    scale(.78);
+            }
+
+
+            .garden.open .flower {
+
+                transform:
+                    translateY(0)
+                    scale(.78);
+            }
+
+
+            .flower:hover {
+
+                transform:
+                    translateY(-6px)
+                    scale(.84) !important;
+            }
+
+
+            .flower-1 {
+
+                left: 0;
+            }
+
+
+            .flower-2 {
+
+                left: 18%;
+            }
+
+
+            .flower-3 {
+
+                left: 38%;
+            }
+
+
+            .flower-4 {
+
+                right: 16%;
+            }
+
+
+            .flower-5 {
+
+                right: -1%;
+            }
+
+
+            .start-message {
+
+                top: 52%;
+
+                font-size: 14px;
+
+                width: 230px;
+            }
+
+
+            .message-box {
+
+                top: 55px;
+
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="main-nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="memories.html">
+            Memories
+        </a>
+
+        <a href="music.html">
+            Music
+        </a>
+
+        <a href="diary.html">
+            Diary
+        </a>
+
+        <a href="little-things.html">
+            Little Things
+        </a>
+
+        <a href="surprise.html">
+            Surprise
+        </a>
+
+        <span class="nav-divider">
+            ✦
+        </span>
+
+        <a href="universe.html">
+            Our Little World
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         PAGE
+    ========================================= -->
+
+    <main class="page">
+
+
+        <section class="intro">
+
+            <h1>
+                a little garden
+            </h1>
+
+
+            <p>
+                I couldn't exactly send you flowers...
+                so I made you a little place instead.
+            </p>
+
+
+            <p class="instruction">
+                there might be something waiting for you here ♡
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+             GARDEN
+        ====================================== -->
+
+        <section
+            class="garden"
+            id="garden">
+
+
+            <!-- STARS -->
+
+            <span class="star star-1">✦</span>
+            <span class="star star-2">✦</span>
+            <span class="star star-3">✦</span>
+            <span class="star star-4">✦</span>
+            <span class="star star-5">✦</span>
+            <span class="star star-6">✦</span>
+            <span class="star star-7">✦</span>
+            <span class="star star-8">✦</span>
+
+
+            <!-- MOON -->
+
+            <div
+                class="moon"
+                id="moon">
+            </div>
+
+
+            <div class="moon-text">
+                tap the moon ♡
+            </div>
+
+
+            <!-- CENTER GLOW -->
+
+            <div class="glow"></div>
+
+
+            <!-- START MESSAGE -->
+
+            <div class="start-message">
+
+                a quiet little place
+                <br>
+                made just for you ♡
+
+            </div>
+
+
+            <!-- FIRELIES -->
+
+            <span class="firefly firefly-1"></span>
+            <span class="firefly firefly-2"></span>
+            <span class="firefly firefly-3"></span>
+            <span class="firefly firefly-4"></span>
+            <span class="firefly firefly-5"></span>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                class="message-box"
+                id="messageBox">
+            </div>
+
+
+            <!-- COUNTER -->
+
+            <div
+                class="counter"
+                id="counter">
+
+                0 / 3
+
+            </div>
+
+
+            <!-- =================================
+                 FLOWER 1
+            ================================== -->
+
+            <div
+                class="flower flower-1"
+                data-message="because you deserve a little happiness 🌷">
+
+
+                <div class="flower-head">
+                    🌷
+                </div>
+
+
+                <div class="stem"></div>
+
+
+                <div class="leaf left"></div>
+
+                <div class="leaf right"></div>
+
+
+            </div>
+
+
+            <!-- =================================
+                 FLOWER 2
+            ================================== -->
+
+            <div
+                class="flower flower-2"
+                data-message="for all the random little moments that somehow became memories 🌸">
+
+
+                <div class="flower-head">
+                    🌸
+                </div>
+
+
+                <div class="stem"></div>
+
+
+                <div class="leaf left"></div>
+
+                <div class="leaf right"></div>
+
+
+            </div>
+
+
+            <!-- =================================
+                 FLOWER 3
+            ================================== -->
+
+            <div
+                class="flower flower-3"
+                data-message="for being one of my favorite people to bother ♡">
+
+
+                <div class="flower-head">
+                    🌹
+                </div>
+
+
+                <div class="stem"></div>
+
+
+                <div class="leaf left"></div>
+
+                <div class="leaf right"></div>
+
+
+            </div>
+
+
+            <!-- =================================
+                 FLOWER 4
+            ================================== -->
+
+            <div
+                class="flower flower-4"
+                data-message="for every laugh, every conversation and every stupid thing in between 🌼">
+
+
+                <div class="flower-head">
+                    🌼
+                </div>
+
+
+                <div class="stem"></div>
+
+
+                <div class="leaf left"></div>
+
+                <div class="leaf right"></div>
+
+
+            </div>
+
+
+            <!-- =================================
+                 FLOWER 5
+            ================================== -->
+
+            <div
+                class="flower flower-5"
+                data-message="and this one... just because you are you 🫶">
+
+
+                <div class="flower-head">
+                    🌷
+                </div>
+
+
+                <div class="stem"></div>
+
+
+                <div class="leaf left"></div>
+
+                <div class="leaf right"></div>
+
+
+            </div>
+
+
+            <!-- GROUND -->
+
+            <div class="ground"></div>
+
+
+            <!-- =================================
+                 FINAL OVERLAY
+            ================================== -->
+
+            <div
+                class="final-overlay"
+                id="finalOverlay">
+
+
+                <div class="final-content">
+
+
+                    <h2>
+                        you found them all ♡
+                    </h2>
+
+
+                    <p>
+
+                        three little flowers,
+                        three little reasons,
+                        and somehow...
+
+                        <br>
+
+                        I still have one more thing
+                        left for you.
+
+                    </p>
+
+
+                    <a
+                        href="video.html"
+                        class="video-button">
+
+                        open it →
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <div class="footer">
+
+            made with a little too much effort ♡
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+   <script>
+
+    const garden =
+        document.getElementById(
+            "garden"
+        );
+
+
+    const moon =
+        document.getElementById(
+            "moon"
+        );
+
+
+    const flowers =
+        document.querySelectorAll(
+            ".flower"
+        );
+
+
+    const messageBox =
+        document.getElementById(
+            "messageBox"
+        );
+
+
+    const counter =
+        document.getElementById(
+            "counter"
+        );
+
+
+    const finalOverlay =
+        document.getElementById(
+            "finalOverlay"
+        );
+
+
+    let gardenOpened = false;
+
+    let flowersFound = 0;
+
+
+    /* =================================
+       OPEN THE GARDEN
+    ================================= */
+
+    moon.addEventListener(
+        "click",
+        function () {
+
+            if (gardenOpened) return;
+
+            gardenOpened = true;
+
+            garden.classList.add(
+                "open"
+            );
+
+        }
+    );
+
+
+    /* =================================
+       FLOWER CLICKS
+    ================================= */
+
+    flowers.forEach(
+        function (flower) {
+
+            flower.addEventListener(
+                "click",
+                function () {
+
+                    if (!gardenOpened) return;
+
+
+                    const message =
+                        flower.getAttribute(
+                            "data-message"
+                        );
+
+
+                    messageBox.textContent =
+                        message;
+
+
+                    messageBox.classList.add(
+                        "show"
+                    );
+
+
+                    /* =====================
+                       COUNT UNIQUE FLOWERS
+                    ===================== */
+
+                    if (
+                        !flower.classList.contains(
+                            "visited"
+                        )
+                    ) {
+
+                        flower.classList.add(
+                            "visited"
+                        );
+
+                        flowersFound++;
+
+                    }
+
+
+                    /* =====================
+                       UPDATE COUNTER
+                    ===================== */
+
+                    counter.textContent =
+                        flowersFound + " / 5";
+
+
+                    /* =====================
+                       ALL FIVE FOUND
+                    ===================== */
+
+                    if (
+                        flowersFound === 5
+                    ) {
+
+                        counter.textContent =
+                            "✦ all found ✦";
+
+
+                        setTimeout(
+                            function () {
+
+                                finalOverlay.classList.add(
+                                    "show"
+                                );
+
+                            },
+                            1000
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
