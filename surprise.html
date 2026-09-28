@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>One Little Surprise ♡</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background: linear-gradient(
+                135deg,
+                #dce4f5,
+                #7186bd,
+                #293d72
+            );
+
+            color: #24345f;
+
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVIGATION
+           ========================= */
+
+        .main-nav {
+            width: 90%;
+            max-width: 900px;
+            margin: 25px auto 0;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(161, 44, 44, 0.10);
+            backdrop-filter: blur(8px);
+        }
+
+
+        .main-nav a {
+            text-decoration: none;
+            color: #8f3b50;
+            font-size: 14px;
+            padding: 8px 13px;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+
+        .main-nav a:hover {
+            background: #d97899;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           HEADER
+           ========================= */
+
+        .surprise-header {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            padding: 65px 20px 30px;
+        }
+
+
+        .surprise-icon {
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+        }
+
+
+        h1 {
+
+            font-size: clamp(38px, 7vw, 58px);
+
+            font-weight: normal;
+
+            color: #263d78;
+
+            margin: 10px 0;
+        }
+
+
+        .subtitle {
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            color: #344875;
+
+            max-width: 500px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           QUIZ
+           ========================= */
+
+        .quiz-box {
+
+            width: 90%;
+
+            max-width: 650px;
+
+            margin: 20px auto 70px;
+
+            padding: 35px 30px;
+
+            background: rgba(245, 248, 255, 0.78);
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(25, 45, 90, 0.18);
+        }
+
+
+        .quiz-title {
+
+            font-size: 22px;
+
+            color: #30477e;
+
+            margin-bottom: 25px;
+        }
+
+
+        #quizQuestion {
+
+            font-size: 18px;
+
+            color: #263b6c;
+
+            margin-bottom: 22px;
+
+            line-height: 1.5;
+        }
+
+
+        .quiz-options {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .quiz-option {
+
+            padding: 13px 16px;
+
+            background: #f3f6fc;
+
+            border: 1px solid #b8c6e2;
+
+            border-radius: 15px;
+
+            color: #30477e;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+
+        .quiz-option:hover {
+
+            background: #d7e0f3;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           CORRECT / WRONG EFFECT
+           ========================= */
+
+        .quiz-option.correct {
+
+            background: #c9f2d0;
+
+            border-color: #63b874;
+
+            color: #276b35;
+
+            transform: scale(1.02);
+        }
+
+
+        .quiz-option.wrong {
+
+            background: #f7c4c4;
+
+            border-color: #df6b6b;
+
+            color: #8a2525;
+
+            transform: scale(1.02);
+        }
+
+
+        #quizFeedback {
+
+            min-height: 25px;
+
+            margin-top: 18px;
+
+            font-size: 13px;
+
+            color: #40578c;
+        }
+
+
+        #quizScore {
+
+            margin-top: 15px;
+
+            font-size: 15px;
+
+            color: #30477e;
+        }
+
+
+        /* =========================
+           SUCCESS
+           ========================= */
+
+        #quizSuccess {
+
+            display: none;
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #b8c6e2;
+        }
+
+
+        .success-text {
+
+            font-size: 18px;
+
+            color: #30477e;
+
+            margin-bottom: 20px;
+
+            line-height: 1.6;
+        }
+
+
+        .last-button {
+
+            border: none;
+
+            background: #405a9a;
+
+            color: white;
+
+            padding: 11px 22px;
+
+            border-radius: 22px;
+
+            font-family: Georgia, serif;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            box-shadow:
+                0 5px 15px rgba(25, 45, 90, 0.18);
+        }
+
+
+        .last-button:hover {
+
+            background: #30477e;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           LETTER AREA
+           ========================= */
+
+        #letterArea {
+
+            display: none;
+
+            margin-top: 40px;
+        }
+
+
+        .envelope {
+
+            width: 260px;
+
+            height: 170px;
+
+            margin: 0 auto;
+
+            position: relative;
+
+            background: #7186bd;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(20, 40, 85, 0.22);
+
+            overflow: hidden;
+        }
+
+
+        .envelope-front {
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left: 130px solid transparent;
+
+            border-right: 130px solid transparent;
+
+            border-bottom: 90px solid #405a9a;
+
+            z-index: 3;
+        }
+
+
+        .envelope-flap {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left: 130px solid transparent;
+
+            border-right: 130px solid transparent;
+
+            border-top: 95px solid #30477e;
+
+            transform-origin: top;
+
+            transition: transform 0.8s ease;
+
+            z-index: 4;
+        }
+
+
+        .envelope-heart {
+
+            position: absolute;
+
+            z-index: 5;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            font-size: 30px;
+
+            color: white;
+        }
+
+
+        .envelope.open .envelope-flap {
+
+            transform: rotateX(180deg);
+        }
+
+
+        /* =========================
+           LETTER
+           ========================= */
+
+        .letter {
+
+            width: 90%;
+
+            max-width: 600px;
+
+            margin: 30px auto 0;
+
+            padding: 30px;
+
+            background: #fffdf7;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 10px 30px rgba(30, 50, 90, 0.16);
+
+            text-align: left;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+            color: #3f4b68;
+
+            animation: letterAppear 0.8s ease;
+        }
+
+
+        @keyframes letterAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(15px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .letter-title {
+
+            text-align: center;
+
+            font-size: 21px;
+
+            color: #405a9a;
+
+            margin-bottom: 25px;
+        }
+
+
+        .letter-sign {
+
+            text-align: right;
+
+            margin-top: 25px;
+
+            color: #405a9a;
+        }
+
+
+        /* =========================
+           BACK TO HOME BUTTON
+           ========================= */
+
+        .home-button {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 30px auto 5px;
+
+            padding: 12px 22px;
+
+            text-decoration: none;
+
+            color: #405a9a;
+
+            background: rgba(255, 255, 255, 0.8);
+
+            border: 1px solid rgba(55, 75, 130, 0.18);
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            box-shadow:
+                0 5px 18px rgba(30, 50, 100, 0.12);
+
+            transition: 0.3s ease;
+        }
+
+
+        .home-button:hover {
+
+            background: #405a9a;
+
+            color: white;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 9px 22px rgba(30, 50, 100, 0.20);
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            .main-nav {
+
+                width: 94%;
+
+                padding: 8px 7px;
+
+                gap: 2px;
+            }
+
+
+            .main-nav a {
+
+                font-size: 10.5px;
+
+                padding: 6px 7px;
+            }
+
+
+            .surprise-header {
+
+                padding: 50px 18px 25px;
+            }
+
+
+            h1 {
+
+                font-size: 40px;
+            }
+
+
+            .subtitle {
+
+                font-size: 14px;
+            }
+
+
+            .quiz-box {
+
+                width: 92%;
+
+                padding: 28px 20px;
+            }
+
+
+            #quizQuestion {
+
+                font-size: 16px;
+            }
+
+
+            .envelope {
+
+                width: 230px;
+
+                height: 150px;
+            }
+
+
+            .envelope-front {
+
+                border-left-width: 115px;
+
+                border-right-width: 115px;
+
+                border-bottom-width: 80px;
+            }
+
+
+            .envelope-flap {
+
+                border-left-width: 115px;
+
+                border-right-width: 115px;
+
+                border-top-width: 85px;
+            }
+
+
+            .letter {
+
+                width: 92%;
+
+                padding: 25px 20px;
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
+
+    <nav class="main-nav">
+
+        <a href="trial.html">Home</a>
+
+        <a href="memories.html">Memories</a>
+
+        <a href="music.html">Music</a>
+
+        <a href="diary.html">Diary</a>
+
+        <a href="little-things.html">Little Things</a>
+
+        <a href="surprise.html">Surprise</a>
+
+        <span class="nav-divider">✦</span>
+
+        <a href="universe.html" class="final-nav">
+            Our Little World
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
+    <header class="surprise-header">
+
+        <div class="surprise-icon">
+            🎁
+        </div>
+
+        <h1>
+            One Little Surprise
+        </h1>
+
+        <p class="subtitle">
+
+            Before you get to the last part,
+            let's see how well you actually know me.
+
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         QUIZ
+         ========================= -->
+
+    <section class="quiz-box">
+
+        <div class="quiz-title">
+            How Well Do You Know Me?
+        </div>
+
+
+        <div id="quizQuestion"></div>
+
+
+        <div id="quizOptions"
+             class="quiz-options">
+        </div>
+
+
+        <div id="quizFeedback"></div>
+
+
+        <div id="quizScore"></div>
+
+
+        <!-- =========================
+             SUCCESS
+             ========================= -->
+
+        <div id="quizSuccess">
+
+            <div class="success-text">
+
+                okayyyy goooooooood
+
+                <br>
+
+                nowww one last surprise because you got it all right
+
+            </div>
+
+
+            <button class="last-button"
+                    onclick="openLetter()">
+
+                one last thing... ♡
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             LETTER AREA
+             ========================= -->
+
+        <div id="letterArea">
+
+            <div class="envelope"
+                 id="envelope"
+                 onclick="openEnvelope()">
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-front"></div>
+
+                <div class="envelope-heart">
+                    ♡
+                </div>
+
+            </div>
+
+
+            <div id="letter"
+                 class="letter"
+                 style="display: none;">
+
+                <div class="letter-title">
+                    One Last Thing ♡
+                </div>
+
+
+                <p>
+                    GOOOOOD JOOBBBB BABUUU
+                </p>
+
+
+                <p>
+                    to ab again ek chotu sa note 
+                    for mera chotu sa babu
+                </p>
+
+
+                <p>
+                    chanda ne pucha taaro se,
+                    taaro ne pucha hazaro se,
+                    sabse pyaara kon hai????,
+                    yashuuuu mera yashuu haii
+                </p>
+
+
+                <p>
+                   yarrrr gussa aa raha hai aap pe bohot 
+                   abhi 10 min se call ka wait kar rahi thi karna hi nahi hai 
+                   dimag kharab kar rakha hai prashant ke sath ghumte rehte ho 
+                   uski bandi se baat ki aapne aaj kyu karte ho bhai mere se toh baat nahi karte ho 
+                   uussi ke sath busy rehte ho hamesha ussi ke sath reh lo 
+                   ek toh itni hasi kyu aa rahi hai mujhe pata nahi 
+                </p>
+
+
+                <p>
+                   ye note toh aapne mood kharab karke barbaad kar diya 
+                   aapki galti huhhhh
+                </p>
+
+
+                <p class="letter-sign">
+
+                    Happy Boyfriend's day
+
+                    <br>
+
+                    -your jaanu
+
+                </p>
+
+
+                <a href="universe.html" class="home-button">
+                    my universe
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+
+        /* =========================
+           QUIZ QUESTIONS
+           ========================= */
+
+        const quizQuestions = [
+
+            {
+                question: "What is my favourite colour?",
+
+                options: [
+                    "Blue",
+                    "Pink",
+                    "Yellow",
+                    "Green"
+                ],
+
+                answer: "Blue"
+            },
+
+
+            {
+                question: "What would I choose for a free day?",
+
+                options: [
+                    "Going out",
+                    "Sleeping all day",
+                    "Studying",
+                    "Cleaning my room"
+                ],
+
+                answer: "Sleeping all day"
+            },
+
+
+            {
+                question: "What kind of movies do I like?",
+
+                options: [
+                    "Mystery / adventure",
+                    "Only romance",
+                    "Romcom",
+                    "Crime / thriller"
+                ],
+
+                answer: "Crime / thriller"
+            },
+
+
+            {
+                question: "What annoys me the most?",
+
+                options: [
+                    "Being ignored",
+                    "Late replies",
+                    "Jhuth",
+                    "Nothing because I am very understanding and chill"
+                ],
+
+                answer: "Nothing because I am very understanding and chill"
+            },
+
+
+            {
+                question: "What do I actually hate?",
+
+                options: [
+                    "Late replies",
+                    "Dry replies",
+                    "Jhuth",
+                    "Being ignored"
+                ],
+
+                answer: "Jhuth"
+            }
+
+        ];
+
+
+        let currentQuestion = 0;
+
+        let quizScore = 0;
+
+
+
+        /* =========================
+           LOAD QUESTION
+           ========================= */
+
+        function loadQuizQuestion() {
+
+            const question =
+                quizQuestions[currentQuestion];
+
+
+            document.getElementById(
+                "quizQuestion"
+            ).textContent =
+                question.question;
+
+
+            const optionsContainer =
+                document.getElementById(
+                    "quizOptions"
+                );
+
+
+            optionsContainer.innerHTML = "";
+
+
+            document.getElementById(
+                "quizFeedback"
+            ).textContent = "";
+
+
+            question.options.forEach(
+                function(option) {
+
+                    const choice =
+                        document.createElement("div");
+
+
+                    choice.className =
+                        "quiz-option";
+
+
+                    choice.textContent =
+                        option;
+
+
+                    choice.onclick =
+                        function() {
+
+                            checkQuizAnswer(option);
+
+                        };
+
+
+                    optionsContainer.appendChild(
+                        choice
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================
+           CHECK ANSWER
+           ========================= */
+
+        function checkQuizAnswer(selectedAnswer) {
+
+            const question =
+                quizQuestions[currentQuestion];
+
+
+            const feedback =
+                document.getElementById(
+                    "quizFeedback"
+                );
+
+
+            const options =
+                document.querySelectorAll(
+                    ".quiz-option"
+                );
+
+
+            options.forEach(
+                function(option) {
+
+                    option.style.pointerEvents =
+                        "none";
+
+
+                    if (
+                        option.textContent ===
+                        question.answer
+                    ) {
+
+                        option.classList.add(
+                            "correct"
+                        );
+
+                    }
+
+
+                    if (
+                        option.textContent ===
+                        selectedAnswer &&
+                        selectedAnswer !==
+                        question.answer
+                    ) {
+
+                        option.classList.add(
+                            "wrong"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            /* =========================
+               FEEDBACK
+               ========================= */
+
+            if (
+                selectedAnswer === question.answer
+            ) {
+
+                quizScore++;
+
+                feedback.textContent =
+                    "hehehehehehehehe correcttt ❤️";
+
+            }
+
+            else {
+
+                feedback.textContent =
+                    "hmmm... WRONGGGGG GANDUU INSAAN";
+
+            }
+
+
+            /* =========================
+               NEXT QUESTION
+               ========================= */
+
+            setTimeout(
+                function() {
+
+                    currentQuestion++;
+
+
+                    if (
+                        currentQuestion <
+                        quizQuestions.length
+                    ) {
+
+                        loadQuizQuestion();
+
+                    }
+
+                    else {
+
+                        finishQuiz();
+
+                    }
+
+                },
+
+                1000
+            );
+
+        }
+
+
+
+        /* =========================
+           FINISH QUIZ
+           ========================= */
+
+        function finishQuiz() {
+
+            document.getElementById(
+                "quizQuestion"
+            ).textContent =
+                "Quiz completeeeeee!";
+
+
+            document.getElementById(
+                "quizOptions"
+            ).innerHTML = "";
+
+
+            document.getElementById(
+                "quizFeedback"
+            ).textContent = "";
+
+
+            document.getElementById(
+                "quizScore"
+            ).textContent =
+                "You got " +
+                quizScore +
+                " / " +
+                quizQuestions.length;
+
+
+            if (
+                quizScore === quizQuestions.length
+            ) {
+
+                document.getElementById(
+                    "quizSuccess"
+                ).style.display =
+                    "block";
+
+            }
+
+            else {
+
+                document.getElementById(
+                    "quizScore"
+                ).textContent +=
+                    " ITNA BHI NAHI PATA GANDUUUU";
+
+            }
+
+        }
+
+
+
+        /* =========================
+           SHOW ENVELOPE
+           ========================= */
+
+        function openLetter() {
+
+            const letterArea =
+                document.getElementById(
+                    "letterArea"
+                );
+
+
+            letterArea.style.display =
+                "block";
+
+
+            letterArea.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        }
+
+
+
+        /* =========================
+           OPEN ENVELOPE
+           ========================= */
+
+        function openEnvelope() {
+
+            const envelope =
+                document.getElementById(
+                    "envelope"
+                );
+
+
+            const letter =
+                document.getElementById(
+                    "letter"
+                );
+
+
+            envelope.classList.add("open");
+
+
+            setTimeout(
+                function() {
+
+                    letter.style.display =
+                        "block";
+
+
+                    letter.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "center"
+
+                    });
+
+                },
+
+                900
+            );
+
+        }
+
+
+
+        /* =========================
+           START QUIZ
+           ========================= */
+
+        loadQuizQuestion();
+
+    </script>
+
+
+</body>
+
+</html>

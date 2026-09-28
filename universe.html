@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little World ♡</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, serif;
+
+    color: #f4f7ff;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #1b3475 0%,
+            #0d1b46 35%,
+            #070c24 70%,
+            #030511 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.main-nav {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 25px auto 0;
+    padding: 10px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+    position: relative;
+    z-index: 100;
+}
+
+.main-nav a {
+    padding: 7px 13px;
+
+    color: #dce7ff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+}
+
+.main-nav a:hover {
+    background: rgba(143, 184, 255, 0.18);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   UNIVERSE
+========================= */
+
+.universe {
+    min-height: calc(100vh - 100px);
+
+    position: relative;
+
+    padding: 65px 20px 80px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    cursor: crosshair;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.world-header {
+    position: relative;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.world-icon {
+    font-size: 42px;
+
+    margin-bottom: 12px;
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(220, 231, 255, 0.8)
+        );
+
+    animation: moonFloat 4s ease-in-out infinite;
+}
+
+.world-header h1 {
+    margin: 0;
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    letter-spacing: 2px;
+
+    color: #f4f7ff;
+
+    text-shadow:
+        0 0 15px rgba(143, 184, 255, 0.8),
+        0 0 35px rgba(143, 184, 255, 0.4);
+}
+
+.world-header p {
+    margin: 15px auto 0;
+
+    color: #c9d7f5;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+@keyframes moonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================
+   MOON
+========================= */
+
+.moon {
+    width: 145px;
+    height: 145px;
+
+    margin: 55px auto 45px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #dce7ff 45%,
+            #a8bce5 75%,
+            #849bc8
+        );
+
+    box-shadow:
+        0 0 35px rgba(220, 231, 255, 0.8),
+        0 0 90px rgba(143, 184, 255, 0.45);
+
+    animation: moonGlow 4s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+
+    0%, 100% {
+        box-shadow:
+            0 0 30px rgba(220, 231, 255, 0.8),
+            0 0 80px rgba(143, 184, 255, 0.35);
+    }
+
+    50% {
+        box-shadow:
+            0 0 45px rgba(220, 231, 255, 0.95),
+            0 0 110px rgba(143, 184, 255, 0.55);
+    }
+}
+
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.instruction {
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 10px;
+
+    color: #b9c9ea;
+
+    font-size: 13px;
+
+    letter-spacing: 0.4px;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.instruction.hide {
+    opacity: 0;
+
+    transform: translateY(-10px);
+}
+
+
+/* =========================
+   CLICKED STARS
+========================= */
+
+.created-star {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 18px #8fb8ff,
+        0 0 30px rgba(143, 184, 255, 0.7);
+
+    pointer-events: none;
+
+    animation:
+        starAppear 0.7s ease forwards,
+        starTwinkle 3s ease-in-out 0.7s infinite;
+}
+
+.created-star::after {
+    content: "✦";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.5);
+
+    color: #dce7ff;
+
+    font-size: 15px;
+
+    opacity: 0.8;
+}
+
+@keyframes starAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+@keyframes starTwinkle {
+
+    0%, 100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   SMALL PARTICLES
+========================= */
+
+.particle {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: #dce7ff;
+
+    opacity: 0.45;
+
+    pointer-events: none;
+
+    animation: particleFloat 5s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateY(-15px);
+        opacity: 0.8;
+    }
+}
+
+
+/* =========================
+   COUNTER
+========================= */
+
+.star-counter {
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 25px;
+
+    color: #91a9d5;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-ending {
+    max-width: 600px;
+
+    margin: 70px auto 0;
+
+    position: relative;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+    pointer-events: none;
+}
+
+.final-ending.show {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+.final-ending .line {
+    width: 70px;
+
+    height: 1px;
+
+    margin: 0 auto 25px;
+
+    background: rgba(143, 184, 255, 0.5);
+}
+
+.final-ending .star-symbol {
+    font-size: 25px;
+
+    margin-bottom: 18px;
+
+    color: #dce7ff;
+
+    text-shadow:
+        0 0 15px #8fb8ff;
+}
+
+.final-ending h2 {
+    margin: 0;
+
+    font-size: 27px;
+
+    font-weight: normal;
+
+    color: #f4f7ff;
+
+    text-shadow:
+        0 0 18px rgba(143, 184, 255, 0.7);
+}
+
+.final-ending p {
+    margin: 20px auto 0;
+
+    max-width: 500px;
+
+    color: #b9c9ea;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.final-ending .last-line {
+    margin-top: 25px;
+
+    color: #dce7ff;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   HOME BUTTON
+========================= */
+
+.home-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+
+    padding: 12px 23px;
+
+    color: #dce7ff;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(143, 184, 255, 0.25);
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s ease;
+}
+
+.home-button:hover {
+    background:
+        rgba(143, 184, 255, 0.2);
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 28px rgba(80, 120, 210, 0.25);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .main-nav {
+        width: 94%;
+
+        gap: 5px;
+    }
+
+    .main-nav a {
+        font-size: 11px;
+
+        padding: 6px 9px;
+    }
+
+    .universe {
+        padding: 55px 15px 70px;
+    }
+
+    .world-header h1 {
+        font-size: 31px;
+    }
+
+    .world-header p {
+        font-size: 13px;
+    }
+
+    .moon {
+        width: 115px;
+        height: 115px;
+
+        margin-top: 45px;
+    }
+
+    .final-ending {
+        margin-top: 60px;
+
+        padding: 0 10px;
+    }
+
+    .final-ending h2 {
+        font-size: 22px;
+    }
+
+    .final-ending p {
+        font-size: 13px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="main-nav">
+
+    <a href="trial.html">Home</a>
+    <a href="memories.html">Memories</a>
+    <a href="music.html">Music</a>
+    <a href="diary.html">Diary</a>
+    <a href="little-things.html">Little Things</a>
+    <a href="surprise.html">Surprise</a>
+
+    <span class="nav-divider">✦</span>
+
+    <a href="universe.html" class="final-nav">Our Little World</a>
+
+</nav>
+
+
+<!-- =========================
+     UNIVERSE
+========================= -->
+
+<main class="universe" id="universe">
+
+
+    <!-- BACKGROUND PARTICLES -->
+
+    <div class="particle"
+         style="top: 15%; left: 18%;"></div>
+
+    <div class="particle"
+         style="top: 28%; right: 15%;"></div>
+
+    <div class="particle"
+         style="top: 47%; left: 8%;"></div>
+
+    <div class="particle"
+         style="top: 58%; right: 9%;"></div>
+
+    <div class="particle"
+         style="top: 72%; left: 25%;"></div>
+
+    <div class="particle"
+         style="top: 80%; right: 25%;"></div>
+
+
+    <!-- HEADER -->
+
+    <header class="world-header">
+
+        <div class="world-icon">
+            🌙
+        </div>
+
+        <h1>
+            OUR LITTLE WORLD ♡
+        </h1>
+
+        <p>
+            after everything we've seen,
+            let's stay here for a little while.
+        </p>
+
+    </header>
+
+
+    <!-- MOON -->
+
+    <div class="moon"></div>
+
+
+    <!-- INSTRUCTION -->
+
+    <div class="instruction" id="instruction">
+
+        click anywhere around the sky
+        and make a few stars of your own ✦
+
+    </div>
+
+
+    <!-- COUNTER -->
+
+    <div class="star-counter" id="starCounter">
+
+        0 / 7 stars
+
+    </div>
+
+
+    <!-- FINAL MESSAGE -->
+
+    <section class="final-ending"
+             id="finalEnding">
+
+        <div class="line"></div>
+
+        <div class="star-symbol">
+            ✦
+        </div>
+
+        <h2>
+            Look at that. ♡
+        </h2>
+
+        <p>
+
+            You just made your own little universe.
+
+            <br><br>
+             
+
+            a personal universe for my 
+            universe my life my jaan
+           
+
+            <br>
+
+            
+
+        </p>
+
+        <p class="last-line">
+
+           
+
+            <br>
+
+            
+
+        </p>
+
+
+        <a href="trial.html"
+           class="home-button">
+
+            Back to where it all started
+
+            <span>
+                ♡
+            </span>
+
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   STAR CREATION
+========================= */
+
+const universe =
+    document.getElementById("universe");
+
+const instruction =
+    document.getElementById("instruction");
+
+const counter =
+    document.getElementById("starCounter");
+
+const finalEnding =
+    document.getElementById("finalEnding");
+
+
+let starCount = 0;
+
+const requiredStars = 7;
+
+
+/* =========================
+   CLICK EVENT
+========================= */
+
+universe.addEventListener("click", function(event) {
+
+    /*
+       Don't create stars when clicking
+       the navigation or final button.
+    */
+
+    if (
+        event.target.closest(".main-nav") ||
+        event.target.closest(".home-button")
+    ) {
+        return;
+    }
+
+
+    if (starCount >= requiredStars) {
+        return;
+    }
+
+
+    starCount++;
+
+
+    /* CREATE STAR */
+
+    const star =
+        document.createElement("div");
+
+    star.className = "created-star";
+
+
+    /*
+       Position relative to the universe
+    */
+
+    const rect =
+        universe.getBoundingClientRect();
+
+
+    const x =
+        event.clientX - rect.left;
+
+    const y =
+        event.clientY - rect.top;
+
+
+    star.style.left = x + "px";
+
+    star.style.top = y + "px";
+
+
+    universe.appendChild(star);
+
+
+    /* UPDATE COUNTER */
+
+    counter.textContent =
+        starCount + " / " +
+        requiredStars +
+        " stars";
+
+
+    /* =========================
+       FINISHED
+    ========================= */
+
+    if (starCount === requiredStars) {
+
+        instruction.classList.add("hide");
+
+        counter.style.opacity = "0";
+
+
+        setTimeout(function() {
+
+            finalEnding.classList.add("show");
+
+        }, 800);
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Music ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #f4e6f0,
+                #d09ab9,
+                #9b5d91
+            );
+
+            color: #5d3658;
+
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .main-nav {
+            width: 90%;
+            max-width: 900px;
+            margin: 25px auto 0;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(161, 44, 44, 0.10);
+            backdrop-filter: blur(8px);
+        }
+
+
+        .main-nav a {
+            text-decoration: none;
+            color: #8f3b50;
+            font-size: 14px;
+            padding: 8px 13px;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+
+        .main-nav a:hover {
+            background: #d97899;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .music-page {
+            max-width: 950px;
+
+            margin: auto;
+
+            padding: 65px 20px 60px;
+
+            animation: pageAppear 0.8s ease;
+        }
+
+
+        @keyframes pageAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .page-icon {
+            font-size: 38px;
+
+            margin-bottom: 10px;
+
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+
+        @keyframes iconFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+        }
+
+
+        h1 {
+            margin: 0 0 10px;
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(38px, 7vw, 58px);
+
+            font-weight: normal;
+
+            color: #683d68;
+        }
+
+
+        .subtitle {
+            max-width: 570px;
+
+            margin: 0 auto 50px;
+
+            font-family: Georgia, serif;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #65445f;
+        }
+
+
+        /* =========================
+           SONG GRID
+        ========================= */
+
+        .music-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 28px;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           SONG CARD
+        ========================= */
+
+        .song-card {
+            background: rgba(255, 255, 255, 0.78);
+
+            padding: 15px 15px 23px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 8px 25px rgba(90, 45, 85, 0.13);
+
+            transition: 0.35s ease;
+
+            opacity: 0;
+
+            animation: cardAppear 0.7s ease forwards;
+        }
+
+
+        .song-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+
+        .song-card:nth-child(2) {
+            animation-delay: 0.35s;
+        }
+
+
+        .song-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+
+        .song-card:nth-child(4) {
+            animation-delay: 0.65s;
+        }
+
+
+        .song-card:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+
+        .song-card:nth-child(6) {
+            animation-delay: 0.95s;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .song-card:hover {
+            transform:
+                translateY(-8px)
+                scale(1.015);
+
+            box-shadow:
+                0 15px 35px rgba(90, 45, 85, 0.20);
+        }
+
+
+        /* =========================
+           COVER
+        ========================= */
+
+        .song-cover {
+            width: 100%;
+
+            height: 260px;
+
+            display: block;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           SONG DETAILS
+        ========================= */
+
+        .song-title {
+            margin-bottom: 6px;
+
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            color: #643b62;
+        }
+
+
+        .artist {
+            margin-bottom: 12px;
+
+            font-size: 12px;
+
+            color: #86617f;
+        }
+
+
+        .reason {
+            margin: 0;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            color: #76566f;
+        }
+
+
+        /* =========================
+           AUDIO
+        ========================= */
+
+        audio {
+            width: 100%;
+
+            margin-top: 17px;
+
+            height: 35px;
+        }
+
+
+        /* =========================
+           BOTTOM MESSAGE
+        ========================= */
+
+        .bottom-message {
+            max-width: 620px;
+
+            margin: 60px auto 0;
+
+            padding: 25px;
+
+            background: rgba(255, 255, 255, 0.48);
+
+            border-radius: 20px;
+
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #65445f;
+
+            box-shadow:
+                0 5px 20px rgba(90, 45, 85, 0.05);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            margin-top: 40px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            color: #76556e;
+        }
+
+
+        /* =========================
+           NEXT PAGE BUTTON
+        ========================= */
+
+        .next-page {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 30px;
+
+            padding: 12px 22px;
+
+            text-decoration: none;
+
+            color: #8f3b50;
+
+            background: rgba(255, 255, 255, 0.65);
+
+            border: 1px solid rgba(143, 59, 80, 0.15);
+
+            border-radius: 30px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 5px 18px rgba(150, 60, 80, 0.10);
+
+            transition: 0.3s ease;
+        }
+
+
+        .next-page:hover {
+            background: #d97899;
+
+            color: white;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 9px 22px rgba(150, 60, 80, 0.18);
+        }
+
+
+        .next-arrow {
+            font-size: 18px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .next-page:hover .next-arrow {
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .main-nav {
+                width: 94%;
+
+                padding: 8px 7px;
+
+                gap: 2px;
+            }
+
+
+            .main-nav a {
+                font-size: 10.5px;
+
+                padding: 6px 7px;
+            }
+
+
+            .music-page {
+                padding: 50px 16px 45px;
+            }
+
+
+            h1 {
+                font-size: 40px;
+            }
+
+
+            .subtitle {
+                font-size: 14px;
+
+                margin-bottom: 35px;
+            }
+
+
+            .music-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+
+            .song-cover {
+                height: 280px;
+            }
+
+
+            .bottom-message {
+                margin-top: 45px;
+
+                padding: 22px 18px;
+
+                font-size: 13px;
+            }
+
+
+            .next-page {
+                margin-top: 25px;
+
+                padding: 11px 19px;
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav class="main-nav">
+
+        <a href="trial.html">Home</a>
+
+        <a href="memories.html">Memories</a>
+
+        <a href="music.html">Music</a>
+
+        <a href="diary.html">Diary</a>
+
+        <a href="little-things.html">Little Things</a>
+
+        <a href="surprise.html">Surprise</a>
+
+        <span class="nav-divider">✦</span>
+
+        <a href="universe.html" class="final-nav">
+            Our Little World
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         PAGE
+    ========================= -->
+
+    <main class="music-page">
+
+
+        <div class="page-icon">
+            🎵
+        </div>
+
+
+        <h1>
+            OUR SONGS
+        </h1>
+
+
+        <p class="subtitle">
+            some songs that remind me of you
+        </p>
+
+
+        <!-- =========================
+             SONG GRID
+        ========================= -->
+
+        <div class="music-grid">
+
+
+            <!-- SONG 1 -->
+
+            <div class="song-card">
+
+                <img
+                    src="covers/cover1.jpg"
+                    alt="Mere rashke kamar"
+                    class="song-cover"
+                >
+
+                <div class="song-title">
+                    Mere rashke kamar
+                </div>
+
+                <div class="artist">
+                    nusrat fateh ali khan
+                </div>
+
+                <p class="reason">
+                    crazy hai
+                </p>
+
+                <audio controls>
+                    <source src="songs/song1.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+
+            <!-- SONG 2 -->
+
+            <div class="song-card">
+
+                <img
+                    src="covers/cover2.jpg"
+                    alt="Chaar kadam"
+                    class="song-cover"
+                >
+
+                <div class="song-title">
+                    Chaar kadam
+                </div>
+
+                <div class="artist">
+                    shaan, shreya ghoshal
+                </div>
+
+                <p class="reason">
+                    hatho me hath liye chaar kadam bas chaar kadam chal do na sath mere
+                </p>
+
+                <audio controls>
+                    <source src="songs/song2.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+
+            <!-- SONG 3 -->
+
+            <div class="song-card">
+
+                <img
+                    src="covers/cover3.jpg"
+                    alt="Tu chahiye"
+                    class="song-cover"
+                >
+
+                <div class="song-title">
+                    Tu chahiye
+                </div>
+
+                <div class="artist">
+                    pritam, atif aslam
+                </div>
+
+                <p class="reason">
+                    yarr this song is exacty what i feel dil ko teri maujudagi ka aehsaas yu chahiye tu chahiye tu chahiye shamo subah tu chahiye
+                </p>
+
+                <audio controls>
+                    <source src="songs/song3.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+
+            <!-- SONG 4 -->
+
+            <div class="song-card">
+
+                <img
+                    src="covers/cover4.jpg"
+                    alt="Fakira"
+                    class="song-cover"
+                >
+
+                <div class="song-title">
+                    fakira
+                </div>
+
+                <div class="artist">
+                    Vishal-shekhar
+                </div>
+
+                <p class="reason">
+                    baithe baithe mai ye sochu tu sang baitha ho toh?
+                </p>
+
+                <audio controls>
+                    <source src="songs/song4.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+
+            <!-- SONG 5 -->
+
+            <div class="song-card">
+
+                <img
+                    src="covers/cover5.jpg"
+                    alt="Ishq de faniyaar"
+                    class="song-cover"
+                >
+
+                <div class="song-title">
+                    ishq de faniyaar
+                </div>
+
+                <div class="artist">
+                    kya pata
+                </div>
+
+                <p class="reason">
+                    MY FAVOUITE ONEE ROZ RAAT EK BAAR ZAROOR SUNTI HU
+                </p>
+
+                <audio controls>
+                    <source src="songs/song5.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+
+            <!-- SONG 6 -->
+
+            <div class="song-card">
+
+                <img
+                    src="covers/cover6.jpg"
+                    alt="Kal chaudhvin ki raat thi"
+                    class="song-cover"
+                >
+
+                <div class="song-title">
+                    Kal chaudhvin ki raat thi
+                </div>
+
+                <div class="artist">
+                    Jagjit Singh
+                </div>
+
+                <p class="reason">
+                    And of course ye kaise chhor deti
+                </p>
+
+                <audio controls>
+                    <source src="songs/song6.mp3" type="audio/mpeg">
+                </audio>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             BOTTOM MESSAGE
+        ========================= -->
+
+        <div class="bottom-message">
+
+            vaise toh harr song reminds me of you because you never leave my mind but still some of my favs
+
+        </div>
+
+
+        <div class="footer">
+            press play and think of me
+        </div>
+
+
+        <!-- =========================
+             NEXT PAGE
+        ========================= -->
+
+        <a href="diary.html" class="next-page">
+
+            Our Diary
+
+            <span class="next-arrow">
+                →
+            </span>
+
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>

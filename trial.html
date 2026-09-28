@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>for you bbu ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, serif;
+
+            background: linear-gradient(
+                135deg,
+                #fff5f8,
+                #f6c5d5,
+                #e99ab5
+            );
+
+            color: #6f303f;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+
+        /* NAVIGATION */
+
+        .main-nav {
+            width: 90%;
+            max-width: 900px;
+            margin: 25px auto 0;
+            padding: 10px 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+
+            box-shadow:
+                0 5px 20px rgba(161, 44, 44, 0.10);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #8f3b50;
+
+            font-size: 14px;
+            padding: 8px 13px;
+
+            border-radius: 20px;
+
+            transition: 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            background: #d97899;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* HOME */
+
+        .home {
+            max-width: 850px;
+            margin: auto;
+            padding: 70px 20px 60px;
+
+            animation: pageAppear 1s ease;
+        }
+
+        @keyframes pageAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* HEART */
+
+        .heart {
+            font-size: 38px;
+
+            animation:
+                floatHeart 2.5s ease-in-out infinite,
+                heartAppear 1s ease;
+        }
+
+        @keyframes floatHeart {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+        @keyframes heartAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* TITLE */
+
+        h1 {
+            margin: 15px 0 10px;
+
+            font-size: clamp(38px, 7vw, 65px);
+
+            color: #9d3450;
+
+            font-weight: normal;
+
+            animation: titleAppear 1s ease 0.2s both;
+        }
+
+        @keyframes titleAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .subtitle {
+            font-size: 17px;
+
+            color: #75404c;
+
+            margin-bottom: 18px;
+
+            animation: titleAppear 1s ease 0.4s both;
+        }
+
+
+        /* INTRO */
+
+        .intro {
+            max-width: 550px;
+
+            margin: 0 auto 35px;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+
+            color: #70424d;
+
+            animation: titleAppear 1s ease 0.6s both;
+        }
+
+
+        /* EXPLORE BUTTON */
+
+        .explore-button {
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: #d97899;
+
+            color: white;
+
+            padding: 12px 27px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 6px 18px rgba(150, 60, 80, 0.18);
+
+            transition: 0.3s ease;
+
+            animation: titleAppear 1s ease 0.8s both;
+        }
+
+        .explore-button:hover {
+            transform: translateY(-3px);
+
+            background: #c96587;
+
+            box-shadow:
+                0 10px 22px rgba(150, 60, 80, 0.22);
+        }
+
+
+        /* DIVIDER */
+
+        .divider {
+            width: 80px;
+
+            height: 1px;
+
+            background: rgba(143, 59, 80, 0.35);
+
+            margin: 45px auto 35px;
+        }
+
+
+        /* SECTION TITLE */
+
+        .explore-title {
+            font-size: 22px;
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+
+            color: #8f3b50;
+        }
+
+
+        /* PAGE CARDS */
+
+        .page-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+        .page-card {
+            text-decoration: none;
+
+            background: rgba(255, 255, 255, 0.72);
+
+            padding: 28px 20px;
+
+            border-radius: 22px;
+
+            color: #7b3547;
+
+            box-shadow:
+                0 8px 25px rgba(150, 60, 80, 0.10);
+
+            transition: 0.3s ease;
+
+            backdrop-filter: blur(5px);
+
+            opacity: 0;
+
+            animation: cardAppear 0.7s ease forwards;
+        }
+
+        .page-card:nth-child(1) {
+            animation-delay: 0.9s;
+        }
+
+        .page-card:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .page-card:nth-child(3) {
+            animation-delay: 1.1s;
+        }
+
+        .page-card:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        .page-card:nth-child(5) {
+            animation-delay: 1.3s;
+        }
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .page-card:hover {
+            transform: translateY(-5px);
+
+            background: rgba(255, 255, 255, 0.9);
+
+            box-shadow:
+                0 12px 30px rgba(150, 60, 80, 0.16);
+        }
+
+
+        .page-icon {
+            display: block;
+
+            font-size: 27px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-name {
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .page-description {
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            color: #94606b;
+
+            line-height: 1.5;
+        }
+
+
+        /* NEXT PAGE BUTTON */
+
+        .next-page {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            margin-top: 30px;
+
+            padding: 12px 22px;
+
+            text-decoration: none;
+
+            color: #8f3b50;
+
+            background: rgba(255, 255, 255, 0.65);
+
+            border: 1px solid rgba(143, 59, 80, 0.15);
+
+            border-radius: 30px;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 5px 18px rgba(150, 60, 80, 0.10);
+
+            transition: 0.3s ease;
+        }
+
+        .next-page:hover {
+            background: #d97899;
+
+            color: white;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 9px 22px rgba(150, 60, 80, 0.18);
+        }
+
+        .next-arrow {
+            font-size: 18px;
+
+            transition: 0.3s ease;
+        }
+
+        .next-page:hover .next-arrow {
+            transform: translateX(4px);
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: 55px;
+
+            font-size: 13px;
+
+            color: #8b5965;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .main-nav {
+                width: 94%;
+
+                padding: 8px;
+
+                gap: 3px;
+            }
+
+            .main-nav a {
+                font-size: 11px;
+
+                padding: 7px 8px;
+            }
+
+
+            .home {
+                padding: 55px 18px 45px;
+            }
+
+
+            h1 {
+                font-size: 40px;
+            }
+
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+
+            .intro {
+                font-size: 14px;
+
+                margin-bottom: 30px;
+            }
+
+
+            .explore-button {
+                padding: 11px 23px;
+
+                font-size: 13px;
+            }
+
+
+            .divider {
+                margin: 38px auto 30px;
+            }
+
+
+            .page-grid {
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+            }
+
+
+            .page-card {
+                padding: 22px 18px;
+            }
+
+
+            .footer {
+                margin-top: 40px;
+            }
+
+
+            .next-page {
+                margin-top: 25px;
+
+                padding: 11px 19px;
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="main-nav">
+
+        <a href="trial.html">Home</a>
+
+        <a href="memories.html">Memories</a>
+
+        <a href="music.html">Music</a>
+
+        <a href="diary.html">Diary</a>
+
+        <a href="little-things.html">Little Things</a>
+
+        <a href="surprise.html">Surprise</a>
+
+        <span class="nav-divider">✦</span>
+
+        <a href="universe.html" class="final-nav">
+            Our Little World
+        </a>
+
+    </nav>
+
+
+    <!-- HOME CONTENT -->
+
+    <main class="home">
+
+
+        <div class="heart">
+            ♡
+        </div>
+
+
+        <h1>
+            HAPPY BOYFRIEND'S DAY
+        </h1>
+
+
+        <p class="subtitle">
+            a little something I made for you mera baccha ;)
+        </p>
+
+
+        <p class="intro">
+
+            this is a small website i made for you babau i hope yoou like it kyuki bohot mehnat ki hai maine aur chatgpt ne SO YOU BETTER LIKE IT
+
+        </p>
+
+
+        <a href="#explore" class="explore-button">
+            explore a little ♡
+        </a>
+
+
+        <div class="divider"></div>
+
+
+        <h2 class="explore-title" id="explore">
+            a few things I made for you
+        </h2>
+
+
+        <div class="page-grid">
+
+
+            <a href="memories.html" class="page-card">
+
+                <span class="page-icon">
+                    📸
+                </span>
+
+                <div class="page-name">
+                    some momments
+                </div>
+
+                <div class="page-description">
+                    A few moments I wanted to keep here.
+                </div>
+
+            </a>
+
+
+            <a href="music.html" class="page-card">
+
+                <span class="page-icon">
+                    🎧
+                </span>
+
+                <div class="page-name">
+                    Music
+                </div>
+
+                <div class="page-description">
+                    Songs that remind me of you.
+                </div>
+
+            </a>
+
+
+            <a href="diary.html" class="page-card">
+
+                <span class="page-icon">
+                    📖
+                </span>
+
+                <div class="page-name">
+                    letter 
+                </div>
+
+                <div class="page-description">
+                    little letter for my jn
+                </div>
+
+            </a>
+
+
+            <a href="little-things.html" class="page-card">
+
+                <span class="page-icon">
+                    🫶
+                </span>
+
+                <div class="page-name">
+                    Little Things
+                </div>
+
+                <div class="page-description">
+                    Random things that make me think of you.
+                </div>
+
+            </a>
+
+
+            <a href="surprise.html" class="page-card">
+
+                <span class="page-icon">
+                    🎁
+                </span>
+
+                <div class="page-name">
+                    One Little Surprise
+                </div>
+
+                <div class="page-description">
+                    answer all the question for surprise note
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+        <div class="footer">
+            made with a little too much effort ♡
+        </div>
+
+
+        <a href="memories.html" class="next-page">
+
+            Our Memories
+
+            <span class="next-arrow">→</span>
+
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>

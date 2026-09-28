@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Little Diary ♡</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background: linear-gradient(
+                135deg,
+                #eee5f3,
+                #bfa2cf,
+                #80619c
+            );
+
+            color: #493555;
+
+            text-align: center;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVIGATION
+           ========================= */
+
+        .main-nav {
+            width: 90%;
+            max-width: 900px;
+            margin: 25px auto 0;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(161, 44, 44, 0.10);
+            backdrop-filter: blur(8px);
+        }
+
+
+        .main-nav a {
+            text-decoration: none;
+            color: #8f3b50;
+            font-size: 14px;
+            padding: 8px 13px;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+
+        .main-nav a:hover {
+            background: #d97899;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           HEADER
+           ========================= */
+
+        .diary-header {
+
+            padding: 60px 20px 30px;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .diary-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+
+        h1 {
+
+            font-size: clamp(38px, 7vw, 58px);
+
+            font-weight: normal;
+
+            color: #68427d;
+
+            margin: 10px 0;
+        }
+
+
+        .subtitle {
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            color: #60486b;
+
+            max-width: 500px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           DIARY PAGE
+           ========================= */
+
+        .diary {
+
+            width: 90%;
+
+            max-width: 720px;
+
+            margin: 15px auto 70px;
+
+            padding: 45px 50px;
+
+            text-align: left;
+
+            background-color: #fffdfb;
+
+            background-image:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0px,
+                    transparent 31px,
+                    #d9c9df 32px
+                );
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 12px 35px rgba(70, 45, 90, 0.18);
+
+            position: relative;
+        }
+
+
+        /* Small purple margin line */
+
+        .diary::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            bottom: 0;
+
+            left: 55px;
+
+            width: 1px;
+
+            background: #c19bcf;
+        }
+
+
+        .date {
+
+            margin-left: 35px;
+
+            margin-bottom: 28px;
+
+            font-size: 13px;
+
+            color: #856491;
+        }
+
+
+        .diary p {
+
+            margin: 0 0 22px 35px;
+
+            font-size: 15px;
+
+            line-height: 32px;
+
+            color: #503b59;
+        }
+
+
+        .signature {
+
+            margin-top: 35px !important;
+
+            text-align: right;
+
+            font-size: 17px !important;
+
+            color: #70457f !important;
+        }
+
+
+        /* =========================
+           BOTTOM
+           ========================= */
+
+        .bottom-note {
+
+            width: 90%;
+
+            max-width: 600px;
+
+            margin: 0 auto 70px;
+
+            font-size: 13px;
+
+            color: #71587c;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           NEXT PAGE BUTTON
+           ========================= */
+
+        .next-page {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 30px;
+
+            padding: 12px 22px;
+
+            text-decoration: none;
+
+            color: #65406f;
+
+            background: rgba(255, 255, 255, 0.65);
+
+            border: 1px solid rgba(100, 65, 120, 0.16);
+
+            border-radius: 30px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 5px 18px rgba(80, 50, 100, 0.12);
+
+            transition: 0.3s ease;
+        }
+
+
+        .next-page:hover {
+
+            background: #80619c;
+
+            color: white;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 9px 22px rgba(80, 50, 100, 0.20);
+        }
+
+
+        .next-arrow {
+
+            font-size: 18px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .next-page:hover .next-arrow {
+
+            transform: translateX(4px);
+        }
+
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            .main-nav {
+                width: 94%;
+
+                padding: 8px 7px;
+
+                gap: 2px;
+            }
+
+
+            .main-nav a {
+                font-size: 10.5px;
+
+                padding: 6px 7px;
+            }
+
+
+            .diary-header {
+
+                padding: 50px 18px 25px;
+            }
+
+
+            h1 {
+
+                font-size: 40px;
+            }
+
+
+            .subtitle {
+
+                font-size: 14px;
+            }
+
+
+            .diary {
+
+                width: 92%;
+
+                padding: 35px 22px;
+
+                background-image:
+                    repeating-linear-gradient(
+                        to bottom,
+                        transparent 0px,
+                        transparent 29px,
+                        #d9c9df 30px
+                    );
+            }
+
+
+            .diary::before {
+
+                left: 25px;
+            }
+
+
+            .date {
+
+                margin-left: 18px;
+            }
+
+
+            .diary p {
+
+                margin-left: 18px;
+
+                font-size: 13px;
+
+                line-height: 30px;
+            }
+
+
+            .next-page {
+
+                margin-top: 25px;
+
+                padding: 11px 19px;
+
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
+
+    <nav class="main-nav">
+
+        <a href="trial.html">Home</a>
+
+        <a href="memories.html">Memories</a>
+
+        <a href="music.html">Music</a>
+
+        <a href="diary.html">Diary</a>
+
+        <a href="little-things.html">Little Things</a>
+
+        <a href="surprise.html">Surprise</a>
+
+        <span class="nav-divider">✦</span>
+
+        <a href="universe.html" class="final-nav">
+            Our Little World
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
+    <header class="diary-header">
+
+        <div class="diary-icon">
+            📖
+        </div>
+
+        <h1>
+            My Little Diary
+        </h1>
+
+        <p class="subtitle">
+
+            Things I probably wouldn't say this
+            properly out loud, so I wrote them here.
+
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         DIARY
+         ========================= -->
+
+    <article class="diary">
+
+
+        <div class="date">
+            7 September 2026
+        </div>
+
+
+        <p>
+            Dear yashu babu,
+        </p>
+
+
+        <p>
+            I don't really know how to start this hamesha ki tarah but
+            i'll start this by a veryyyyy heartfelt I LOVEE YOUU
+        </p>
+
+
+        <p>
+            its already been 3 months and idk what to think of it
+            kab chale gaye ye 3 months pata bhi nahi chala ab
+            aap bologe aapke sath time ka pata nhi chalta hai huhh
+            well yeah maybe but in these 3 months bohot kuch hua hai.
+        </p>
+
+
+        <p>
+            i've said things jo mai actually mean nahi karti and aap toh khair
+            bolte hi nahi ho but whatever we have i feel it is very special
+            and abhi 3 months hue hai i want jaldi jldi 3 years and 30 years and
+            300 years bhi ho jaye hehehehehehehhehehheehe
+        </p>
+
+
+        <p>
+            but yeah happy boyfriend's day mere cutie boyfriend
+            i still cant believe ki mai reltionship me hu but i'm really
+            glad i took the risk mereko lagta tha ki relationship is supposed
+            to yk feel magical something out of the ordinary
+        </p>
+
+
+        <p>
+            but no its not magical in the way i thought it would be
+            kuch crazy chiz nahi hai relationship yar relationship for me
+            is feeling comfort in your voice
+            feeling happy when you laugh at mera faltu jok
+            feeling butterflies jab aap call pe babu ya jaan bol do,
+            blushing chutiyo ki tarah whenever i'm randomly thinking about you,
+            crying soch ke ki maybe this will not work,
+            but then feeling happy that atleast its working rn,
+            maine anime me and movies wagehra me dekha tha like
+            when the girl is yk soo in love ki uska partner ko yaad karke
+            she's hiding her face pillow me and legs wiggle kar rahe hawa me
+            kutte ki tail ki tarah hahhahahahhahah, well that is me now
+            whenever you give me kisses on call i loveeeee aapke mwahhh.
+            sooo relationship is nottt magical its finding yourself connect
+            to someone soooo much that your whole boring day is a little
+            less boring and finding them is the most ordinary things
+            pata nahi kya bol gayi yarrr
+            but yeah i hope i make you feel special because you are
+            veryyyy special for me
+        </p>
+
+
+        <p>
+            sooo this is it i hope aapko pasand aaya ho mera first time hai
+            website banate hue so dont judge maine aur chatgpt bohot mehnat ki
+            hai so you better like it
+            mere pyaara boyfriend mere handsome cute boyfriend
+            andddd mere bacche i love you.
+        </p>
+
+
+        <p class="signature">
+
+            from your jaanu
+
+        </p>
+
+
+    </article>
+
+
+    <div class="bottom-note">
+
+        mwahhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+    </div>
+
+
+    <a href="little-things.html" class="next-page">
+
+        Little Things
+
+        <span class="next-arrow">→</span>
+
+    </a>
+
+
+</body>
+
+</html>
